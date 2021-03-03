@@ -1,0 +1,78 @@
+Package: exams2sakai
+Title: Automatic Generation of Exams in R for 'Sakai' LMS platform
+Version: 0.1
+Authors@R: c(
+	person(given = "Fuensanta",
+           family = "Arnaldos García",
+           email = "arnaldos@um.es",
+           role = "aut" ),
+	person(given = "María Victoria",
+           family = "Caballero Pintado",
+           email = "mvictori@um.es",
+           role = "aut" ),
+	person(given = "Úrsula",
+           family = "Faura Martínez",
+           email = "faura@um.es",
+           role = "aut" ),
+	person(given = "María Teresa",
+           family = "Díaz Delfa",
+           email = "mdd@um.es",
+           role = "aut" ),
+    person(given = "Jesús María",
+           family = "Méndez Pérez",
+           email = "jesus.mendez@ticarum.es",
+           role = c("aut", "cre") ),		   
+	person(given = "Lourdes",
+           family = "Molera Peris",
+           email = "lmolera@um.es",
+           role = "aut" ),
+	person(given = "José Antonio",
+           family = "Palazón Ferrando",
+           email = "palazon@um.es",
+           role = "aut" ),
+	person(given = "Juan José",
+           family = "Pérez Castejón",
+           email = "jjpc@um.es",
+           role = "aut" ),
+	person(given = "Isabel",
+           family = "Parra Frutos",
+           email = "ipf@um.es",
+           role = "aut" ),
+	person(given = "Raúl",
+           family = "Sánchez Sánchez",
+           email = "raul@um.es",
+           role = "aut" ),
+	person(given = "Nicolás Andrés",
+           family = "Ubero Pascal",
+           email = "nubero@um.es",
+           role = "aut" ),
+	person(given = "Nikolaus",
+           family = "Umlauf",
+           email = "Nikolaus.Umlauf@uibk.ac.at",
+           role = "ctb" ),
+	person(given = "Achim",
+           family = "Zeileis",
+           email = "Achim.Zeileis@R-project.org",
+           role = "ctb",
+           comment = c(ORCID = "0000-0003-0918-3766")))
+Description: Automatic Generation of Exams in R for 'Sakai' LMS platform.
+  Question templates in the form of the R/exams package (see <http://www.r-exams.org/>)
+  are transformed into XML format required by 'Sakai'.
+License: GPL-2 | GPL-3
+Depends:
+  R (>= 3.4.0),
+  exams (>= 2.3-6)
+Imports:
+  glue (>= 1.4.0),
+  stringr (>= 1.4.0),
+  stringi (>= 1.4.6),
+  xml2 (>= 1.2.5)
+Suggests:
+  knitr
+URL: https://github.com/jesusmmp/exams2sakai
+BugReports: https://github.com/jesusmmp/exams2sakai/issues
+Encoding: UTF-8
+LazyData: true
+VignetteBuilder: 
+  knitr
+RoxygenNote: 7.1.0
