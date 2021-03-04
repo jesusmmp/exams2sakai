@@ -67,6 +67,7 @@ Results a `qtisakai.zip` file in work directory ...
 
 # Meta-information
 
+```r
 exname: Swiss Capital
 extype: schoice
 extype: mchoice
@@ -77,3 +78,4 @@ exsolution: 0100001
 exshuffle: 5
 exextra[randomize]: TRUE      # Randomize answers
 exextra[hasRationale]: TRUE   # Require Rationale
+```
