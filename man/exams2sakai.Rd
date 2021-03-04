@@ -219,16 +219,24 @@ Zeileis A, Umlauf N, Leisch F (2014).
 }
 
 \examples{
+\dontrun{
 ## load package and enforce par(ask = FALSE)
 library("exams2sakai")
+options(device.ask.default = FALSE)
 
 ## define an exams (= list of exercises)
 myexam <- list( "boxplots", "regression", "scatterplot", "relfreq" )
 
-## generate .zip 
+## output directory
+dir.create(mydir <- tempfile())
+
+## generate Sakai quiz in temporary directory
 exams2sakai( myexam, n = 1, converter="pandoc-mathjax",
                     verbose = TRUE,
-                    dir = ".", points = c( 1 ) )
+                    dir = "mydir", points = c( 1 ) )
+
+dir(mydir)
+}
 }
 
 \keyword{utilities}

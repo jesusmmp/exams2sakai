@@ -1,6 +1,6 @@
 # Intro
 
-Automatic Generation of Exams in R for 'Sakai' LMS platform
+Automatic Generation of Exams in R for 'Sakai'
 used by universities. Question templates in
 the form of the [`R/exams`](http://www.r-exams.org/) package are
 transformed into Sakai XML format.
@@ -29,7 +29,7 @@ install_github( "jesusmmp/exams2sakai" )
 
 # Using `exams2sakai` function
 
-```r
+``` r
 library( exams2sakai )
 
 myexam <- list( "boxplots", "regression", "scatterplot", "relfreq" )
@@ -67,7 +67,7 @@ Results a `qtisakai.zip` file in work directory ...
 
 # Meta-information
 
-```r
+``` r
 exname: Swiss Capital
 extype: schoice
 extype: mchoice
