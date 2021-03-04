@@ -18,7 +18,7 @@ Authors@R: c(
            family = "Díaz Delfa",
            email = "mdd@um.es",
            role = "aut" ),
-    person(given = "Jesús María",
+	person(given = "Jesús María",
            family = "Méndez Pérez",
            email = "jesus.mendez@ticarum.es",
            role = c("aut", "cre") ),		   
@@ -68,7 +68,7 @@ Imports:
   stringi (>= 1.4.6),
   xml2 (>= 1.2.5)
 Suggests:
-  knitr
+  knitr, rmarkdown
 URL: https://github.com/jesusmmp/exams2sakai
 BugReports: https://github.com/jesusmmp/exams2sakai/issues
 Encoding: UTF-8

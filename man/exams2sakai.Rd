@@ -24,6 +24,14 @@
     eval = list(partial = TRUE, negative = FALSE),
     converter = NULL, xmlcollapse = FALSE, \dots)
 
+  make_itembody_sakai(rtiming = FALSE, shuffle = FALSE,
+    rshuffle = shuffle, minnumber = NULL, maxnumber = NULL,
+    defaultval = NULL, minvalue = NULL, maxvalue = NULL,
+    cutvalue = NULL, enumerate = TRUE, digits = NULL,
+    tolerance = is.null(digits), maxchars = 12,
+    eval = list(partial = TRUE, negative = FALSE),
+    fix_num = TRUE)
+
 }
 
 \arguments{
@@ -88,11 +96,6 @@
     the exam.}
   \item{eval}{named list, specifies the settings for the evaluation policy, see function
     \code{\link{exams_eval}}.}
-  \item{base64}{logical. Should supplementary files be embedded using Base 64 coding?
-    Argument \code{base64} may also be a character vector of file suffixes that should be encoded, e.g.
-    \code{base64 = c("png", "rda")} will only encode PNG images and binary \code{.rda} files.
-    If set to \code{NULL} only image files will be encoded.}
-  \item{mode}{character. See function \code{\link[tth]{tth}}.}
   \item{rtiming, shuffle, rshuffle, minnumber, maxnumber, defaultval, minvalue,
     maxvalue}{arguments used for IMS QTI 1.2 item construction, for details see the XML
     specification (see IMS Global Learning Consortium, Inc. 2012), especially Section 4.
@@ -113,11 +116,6 @@
   \item{xmlcollapse}{logical or character. Should line breaks be collapsed in the XML
     code. If \code{TRUE} everything is collapsed with spaces (\code{" "}) but other collapse
     characters could be supplied.}
-  \item{flavor}{character. Which QTI 1.2 \dQuote{flavor} should be used? Some learning
-    management systems require that the QTI XML tags are used in a rather specific
-    and idiosyncratic way. Typically, users should not set this argument directly but
-    use the convenience interfaces \code{\link{exams2canvas}} or \code{\link{exams2openolat}}
-    instead (which use the \code{flavor} argument internally along with further customizations).}
   \item{\dots}{further arguments passed on to \code{make_exercise_transform_html}.}
 }
 
