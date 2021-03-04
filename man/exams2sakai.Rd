@@ -22,8 +22,7 @@
     maxattempts = 1, cutvalue = 0, solutionswitch = TRUE,
     zip = TRUE, points = NULL,
     eval = list(partial = TRUE, negative = FALSE),
-    converter = NULL, xmlcollapse = FALSE,
-    flavor = c("plain", "openolat", "canvas"), \dots)
+    converter = NULL, xmlcollapse = FALSE, \dots)
 
 }
 
