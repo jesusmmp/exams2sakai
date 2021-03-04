@@ -1,5 +1,5 @@
 Package: exams2sakai
-Title: Automatic Generation of Exams in R for 'Sakai' LMS platform
+Title: Automatic Generation of Exams in R for 'Sakai' LMS Platform
 Version: 0.1
 Authors@R: c(
 	person(given = "Fuensanta",
