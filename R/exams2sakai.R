@@ -334,7 +334,7 @@ exams2sakai <- function(file, n = 1L, nsamp = NULL, dir = ".",
   ## compress
   if(zip) {
     owd <- getwd()
-    setwd(test_dir)
+    on.exit(setwd(test_dir))
     zip(zipfile = zipname <- paste(name, "zip", sep = "."), files = list.files(test_dir))
     setwd(owd)
   } else zipname <- list.files(test_dir)

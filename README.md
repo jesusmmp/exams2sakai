@@ -1,6 +1,6 @@
 # Intro
 
-Automatic Generation of Exams in R for 'Sakai'
+Automatic Generation of Exams in R for Sakai
 used by universities. Question templates in
 the form of the [`R/exams`](http://www.r-exams.org/) package are
 transformed into Sakai XML format.
