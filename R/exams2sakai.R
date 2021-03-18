@@ -334,10 +334,14 @@ exams2sakai <- function(file, n = 1L, nsamp = NULL, dir = ".",
   ## compress
   if(zip) {
     owd <- getwd()
+    on.exit(setwd(owd), add = TRUE)
     setwd(test_dir)
     utils::zip(zipfile = zipname <- paste(name, "zip", sep = "."), files = list.files(test_dir))
-    setwd(owd)
   } else zipname <- list.files(test_dir)
+
+  if(dir == ".") {
+    dir = owd
+  }
 
   ## copy the final .zip file
   file.copy(file.path(test_dir, zipname), dir, recursive = TRUE)
