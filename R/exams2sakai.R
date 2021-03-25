@@ -10,12 +10,8 @@ exams2sakai <- function(file, n = 1L, nsamp = NULL, dir = ".",
   sdescription = "Please answer the following question.", 
   maxattempts = 1, cutvalue = 0, solutionswitch = TRUE, zip = TRUE,
   points = NULL, eval = list(partial = TRUE, negative = FALSE),
-  converter = NULL, xmlcollapse = FALSE, ...)
+  converter = "pandoc-mathjax", xmlcollapse = FALSE, ...)
 {
-  ## default converter is "ttm" if all exercises are Rnw, otherwise "pandoc"
-  if(is.null(converter)) {
-    converter <- if(any(tolower(tools::file_ext(unlist(file))) == "rmd")) "pandoc" else "ttm"
-  }
   ## set up .html transformer
   htmltransform <- make_exercise_transform_html(converter = converter, ...)
 
@@ -337,11 +333,10 @@ exams2sakai <- function(file, n = 1L, nsamp = NULL, dir = ".",
     on.exit(setwd(owd), add = TRUE)
     setwd(test_dir)
     utils::zip(zipfile = zipname <- paste(name, "zip", sep = "."), files = list.files(test_dir))
+    if(dir == ".") {
+      dir = owd
+    }
   } else zipname <- list.files(test_dir)
-
-  if(dir == ".") {
-    dir = owd
-  }
 
   ## copy the final .zip file
   file.copy(file.path(test_dir, zipname), dir, recursive = TRUE)
@@ -606,29 +601,46 @@ make_itembody_sakai <- function(rtiming = FALSE, shuffle = FALSE, rshuffle = shu
                 if(fix_num) {
                   correct_num[[i]] <- c(correct_num[[i]],
                     paste('<varequal respident="', ids[[i]]$response,
-                      '" case="No"><![CDATA[', if(!is.null(digits)) {
-                      format(round(solution[[i]][j], digits), nsmall = digits)
-                      } else solution[[i]][j],
+                      '" case="No"><![CDATA[', solution[[i]][j] - max(tol[[i]]), '|', 
+                      solution[[i]][j] + max(tol[[i]]),
                       ']]></varequal>', sep = "")
                   )
                 }
-                wrong_num[[i]] <- paste(
-                  paste(c('\n<or>', paste('<varequal respident="', ids[[i]]$response,
-                    '" case="No"><![CDATA[', if(!is.null(digits)) {
-                      format(round(solution[[i]][j], digits), nsmall = digits)
-                    } else solution[[i]][j],
-                    ']]></varequal>\n', sep = "")), collapse = '\n', sep = ''),
-                  '<and>\n',
-                  paste('<vargte respident="', ids[[i]]$response, '"><![CDATA[',
-                    solution[[i]][j] - max(tol[[i]]),
-                    ']]></vargte>\n', sep = ""),
-                  paste('<varlte respident="', ids[[i]]$response, '"><![CDATA[',
-                    solution[[i]][j] + max(tol[[i]]),
-                    ']]></varlte>\n', sep = ""),
-                  '</and>',
-                  '\n</or>',
-                  collapse = '\n', sep = ''
-                )
+                if (tol[[i]] == 0) {
+                  wrong_num[[i]] <- paste(
+                    paste(c('\n<or>', paste('<varequal respident="', ids[[i]]$response,
+                      '" case="No"><![CDATA[',  solution[[i]][j] ,
+                      ']]></varequal>\n', sep = "")), collapse = '\n', sep = ''),
+                    '<and>\n',
+                    paste('<vargte respident="', ids[[i]]$response, '"><![CDATA[',
+                      solution[[i]][j],
+                      ']]></vargte>\n', sep = ""),
+                    paste('<varlte respident="', ids[[i]]$response, '"><![CDATA[',
+                      solution[[i]][j],
+                      ']]></varlte>\n', sep = ""),
+                    '</and>',
+                    '\n</or>',
+                    collapse = '\n', sep = ''
+                  )
+                }
+                else {
+                  wrong_num[[i]] <- paste(
+                    paste(c('\n<or>', paste('<varequal respident="', ids[[i]]$response,
+                      '" case="No"><![CDATA[',  solution[[i]][j] - max(tol[[i]]), '|', 
+                      solution[[i]][j] + max(tol[[i]]),
+                      ']]></varequal>\n', sep = "")), collapse = '\n', sep = ''),
+                    '<and>\n',
+                    paste('<vargte respident="', ids[[i]]$response, '"><![CDATA[',
+                          solution[[i]][j] - max(tol[[i]]),
+                          ']]></vargte>\n', sep = ""),
+                    paste('<varlte respident="', ids[[i]]$response, '"><![CDATA[',
+                          solution[[i]][j] + max(tol[[i]]),
+                          ']]></varlte>\n', sep = ""),
+                    '</and>',
+                    '\n</or>',
+                    collapse = '\n', sep = ''
+                  )
+                }
               }
             )
           }

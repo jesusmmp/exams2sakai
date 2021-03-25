@@ -22,7 +22,7 @@
     maxattempts = 1, cutvalue = 0, solutionswitch = TRUE,
     zip = TRUE, points = NULL,
     eval = list(partial = TRUE, negative = FALSE),
-    converter = NULL, xmlcollapse = FALSE, \dots)
+    converter = "pandoc-mathjax", xmlcollapse = FALSE, \dots)
 
   make_itembody_sakai(rtiming = FALSE, shuffle = FALSE,
     rshuffle = shuffle, minnumber = NULL, maxnumber = NULL,
@@ -111,8 +111,7 @@
     correct solutions for numeric exercises/answers as well as to obtain results when archiving tests.
     Note that this is a workaround, which works e.g. within OLAT.}
   \item{converter}{character. Argument passed on to \code{make_exercise_transform_html}.
-    The default for \code{converter} is set to \code{"ttm"} unless there are Rmd
-    exercises in \code{file} where \code{"pandoc"} is used.}
+    The default for \code{converter} is set to \code{"pandoc-mathjax"}}
   \item{xmlcollapse}{logical or character. Should line breaks be collapsed in the XML
     code. If \code{TRUE} everything is collapsed with spaces (\code{" "}) but other collapse
     characters could be supplied.}
@@ -231,7 +230,7 @@ myexam <- list( "boxplots", "regression", "scatterplot", "relfreq" )
 dir.create(mydir <- tempfile())
 
 ## generate Sakai quiz in temporary directory
-exams2sakai( myexam, n = 1, converter="pandoc-mathjax",
+exams2sakai( myexam, n = 1,
                     verbose = TRUE,
                     dir = "mydir", points = c( 1 ) )
 

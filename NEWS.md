@@ -1,3 +1,11 @@
+# exams2sakai 0.2
+
+* Adding tolerance for Numeric Response Questions.
+
+* Set converter = "pandoc-mathjax" by default option.
+
+* Fixing bug 'owd not found' when zip=FALSE.
+
 # exams2sakai 0.1
 
 * First CRAN release version.

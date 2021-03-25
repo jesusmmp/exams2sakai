@@ -34,7 +34,7 @@ library( exams2sakai )
 
 myexam <- list( "boxplots", "regression", "scatterplot", "relfreq" )
 
-ex1 <- exams2sakai( myexam, n = 1, converter="pandoc-mathjax",
+ex1 <- exams2sakai( myexam, n = 1,
                     verbose = TRUE,
                     dir = ".", points = c( 1 ) )
 
@@ -74,6 +74,7 @@ extype: mchoice
 extype: num                   # Only working with one solution
 exsingle: TRUE                # mcss
 exsingle: FALSE               # mca
+extol: 0.1                    # Tolerance for Numeric Response questions
 exsolution: 0100001
 exshuffle: 5
 exextra[randomize]: TRUE      # Randomize answers

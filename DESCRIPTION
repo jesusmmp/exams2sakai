@@ -1,6 +1,6 @@
 Package: exams2sakai
 Title: Automatic Generation of Exams in R for 'Sakai'
-Version: 0.1
+Version: 0.2
 Authors@R: c(
 	person(given = "Fuensanta",
            family = "Arnaldos García",
