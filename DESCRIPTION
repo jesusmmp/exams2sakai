@@ -72,5 +72,4 @@ Suggests:
 URL: https://github.com/jesusmmp/exams2sakai
 BugReports: https://github.com/jesusmmp/exams2sakai/issues
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 7.1.0
