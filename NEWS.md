@@ -1,3 +1,11 @@
+# exams2sakai 0.3
+
+* Same correct/incorrect feedback for Numeric Response Questions
+
+* Same name for xml and zip if zip=TRUE
+
+* Adding some references on manual
+
 # exams2sakai 0.2
 
 * Adding tolerance for Numeric Response Questions.

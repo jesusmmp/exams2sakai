@@ -213,7 +213,12 @@ exams2sakai <- function(file, n = 1L, nsamp = NULL, dir = ".",
 
       ibody <- gsub("##CommentCorrect##", paste(comcor, collapse = "\n"), ibody, fixed = TRUE)
 
-      ibody <- gsub("##CommentInCorrect##", paste(comincor, collapse = "\n"), ibody, fixed = TRUE)
+      ## same correct/incorrect feedback for Numeric Response questions
+      if (type != "num") {
+        ibody <- gsub("##CommentInCorrect##", paste(comincor, collapse = "\n"), ibody, fixed = TRUE)
+      } else {
+        ibody <- gsub("##CommentInCorrect##", paste(comcor, collapse = "\n"), ibody, fixed = TRUE)
+      }
 
       ## insert an item id
       ibody <- gsub("##ItemId##", iname, ibody, fixed = TRUE)
@@ -325,7 +330,7 @@ exams2sakai <- function(file, n = 1L, nsamp = NULL, dir = ".",
     xml <- paste(xml, collapse = " ")
   }
   ## write to dir
-  writeLines(xml, file.path(test_dir, if(zip) "qtisakai.xml" else paste(xmlname, "xml", sep = ".")))
+  writeLines(xml, file.path(test_dir, if((zip && name == "qtisakai")) "qtisakai.xml" else paste(xmlname, "xml", sep = ".")))
 
   ## compress
   if(zip) {
@@ -336,6 +341,7 @@ exams2sakai <- function(file, n = 1L, nsamp = NULL, dir = ".",
     if(dir == ".") {
       dir = owd
     }
+    setwd(owd)
   } else zipname <- list.files(test_dir)
 
   ## copy the final .zip file
