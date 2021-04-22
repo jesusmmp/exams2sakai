@@ -204,11 +204,11 @@ Zeileis A, Umlauf N, Leisch F (2014).
 R/Exams in Sakai (Sakai Virtual Conference 2019). 6th November 2019.
 \url{https://aulavirtual.um.es/access/content/group/COLLAB-3ufsaiywvwzdmvw4rn6ghjl/SVC2019/SVC2019.html}
 
-Proyecto de adaptación de R/Exams a la plataforma Sakai (XI Jornadas de Usuarios de R). 14-16 Noviembre 2019.
+Proyecto de adaptaci&oacute;n de R/Exams a la plataforma Sakai (XI Jornadas de Usuarios de R). 14-16 Noviembre 2019.
 \url{https://aulavirtual.um.es/access/content/group/COLLAB-3ufsaiywvwzdmvw4rn6ghjl/xijur2019/xijur19.html}
 \url{https://canal.uned.es/video/5dd268775578f2766d1cca9d}
 
-Tareas y exámenes en Sakai con R/Exams. 25 Marzo 2021.
+Tareas y ex&aacute;menes en Sakai con R/Exams. 25 Marzo 2021.
 \url{https://youtu.be/4i9YKPiVIrg?t=1920}
 \url{https://gauss.inf.um.es/umur/}
 }
