@@ -1,3 +1,9 @@
+# exams2sakai 0.4
+
+* Fix bug with correct/incorrect feedback
+
+* Fix bug Error in if (typemchoice == TRUE || typemchoice == T) { : missing value where TRUE/FALSE needed
+
 # exams2sakai 0.3
 
 * Same correct/incorrect feedback for Numeric Response Questions

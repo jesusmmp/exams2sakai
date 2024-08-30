@@ -207,9 +207,15 @@ exams2sakai <- function(file, n = 1L, nsamp = NULL, dir = ".",
           comincor <- NULL
           
       } else{
+        if ((type == "schoice") || (type == "mchoice")) {
           comcor <- paste0(strsplit(xsolution, "+", fixed = TRUE)[[1]][1], "</p>")
           comincor <- paste0("<p>", strsplit(xsolution, "+", fixed = TRUE)[[1]][2])
-      } 
+        }
+        else {
+          comcor <- xsolution
+          comincor <- xsolution
+        }
+      }
 
       ibody <- gsub("##CommentCorrect##", paste(comcor, collapse = "\n"), ibody, fixed = TRUE)
 
@@ -920,7 +926,10 @@ delete.NULLs <- function(x.list) {
 ## function to identify different question types
 questionType <- function(type, typemchoice) {
   if(type == "mchoice"){
-      if (typemchoice == TRUE || typemchoice == T){
+      if (length(typemchoice) == 0 || is.na(typemchoice)){
+        noquote("Multiple Choice")
+      }
+      else if (typemchoice == TRUE || typemchoice == T){
         noquote("Multiple Correct Single Selection")
       }
       else if(typemchoice == FALSE || typemchoice == F){
